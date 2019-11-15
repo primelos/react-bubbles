@@ -23,10 +23,7 @@ const Login = (props) => {
       })
       .catch(err => console.log(err));
   }
-  const logout = e => {
-    e.preventDefault()
-    localStorage.clear()
-  }
+  
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
@@ -49,7 +46,7 @@ const Login = (props) => {
             onChange={changeIt}
           />
         <button className='reg-button'>Login</button>
-        <button className='reg-button' onClick={logout} >Logout</button>
+        {/* <button className='reg-button' onClick={logout} >Logout</button> */}
         </form>
     </>
   );

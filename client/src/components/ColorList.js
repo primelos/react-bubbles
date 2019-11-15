@@ -25,7 +25,7 @@ const ColorList = ({ colors, updateColors }) => {
     // const pallet = colors.match.params.id
 
     axiosWithAuth()
-      .put(`colors/${colorToEdit.id}`, colorToEdit//updateColors)
+      .put(`colors/${colorToEdit.id}`, colorToEdit)//updateColors)
       .then(resolve => {
         colors.history.push('/protected')
       })
