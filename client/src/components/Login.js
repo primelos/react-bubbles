@@ -1,4 +1,5 @@
 import React from "react";
+import { axiosWithAuth } from "../utils/axiosWithAith";
 
 const Login = () => {
   // make a post request to retrieve a token from the api
@@ -6,10 +7,21 @@ const Login = () => {
   const [enter, setEnter] = useState({ username:'', password:'' })
 
   const changeIt = e => {
-    e.preventDefault()
+    e.preventDefault();
     setEnter({
       ...enter, [e.target.name]: e.target.value
     })
+  }
+
+  const login = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post ('/login', enter)
+      .then(sentMe => {
+        localStorage.setItem('token', res.data.payload);
+        props.history.push('/protected')
+      })
+      .catch(err => console.log(err));
   }
 
   return (
